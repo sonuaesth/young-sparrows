@@ -139,6 +139,11 @@ const NavBar: React.FC<{ textColor?: string }> = ({ textColor }) => {
       route:
         currentLanguage === "en" ? "/enroll" : `/${currentLanguage}/enroll`,
     },
+    {
+      text: t("navbar.Feedback"),
+      route:
+        currentLanguage === "en" ? "/feedback" : `/${currentLanguage}/feedback`,
+    },
   ];
 
   const drawer = (
