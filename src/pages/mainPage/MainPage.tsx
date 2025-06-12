@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {useTranslation} from "react-i18next";
-import {CssBaseline, Typography, useMediaQuery} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { CssBaseline, Typography, useMediaQuery } from "@mui/material";
 import SchoolSharpIcon from "@mui/icons-material/SchoolSharp";
 import CambridgeFrame from "../../elements/CambridgeFrame";
 import VideoFrame from "./VideoFrame";
@@ -15,18 +15,20 @@ import HeroSection from "../../elements/HeroSection";
 import theme from "../../elements/Theme";
 import BlogsFrame from "./BlogsFrame";
 import SpecialOfferModal from "../../elements/SpecialOfferModal";
+import FeedbackCarouselFrame from "./FeedbackCarouselFrame";
+import { CssVarsProvider } from "@mui/joy";
 
 export interface IconTypographyI {
   isMobile: boolean;
   text: string;
 }
 
-const IconTypography = ({isMobile, text}: IconTypographyI) => (
+const IconTypography = ({ isMobile, text }: IconTypographyI) => (
   <Typography
     variant={"h3"}
     fontWeight={400}
     textAlign={"start"}
-    sx={{display: "inline-flex"}}
+    sx={{ display: "inline-flex" }}
   >
     {!isMobile ? (
       text
@@ -34,7 +36,7 @@ const IconTypography = ({isMobile, text}: IconTypographyI) => (
       <>
         <SchoolSharpIcon
           fontSize="large"
-          sx={{width: "0.9em", height: "0.9em", mr: "5px", color: "#F89C27"}}
+          sx={{ width: "0.9em", height: "0.9em", mr: "5px", color: "#F89C27" }}
         />
         {text}
       </>
@@ -43,16 +45,16 @@ const IconTypography = ({isMobile, text}: IconTypographyI) => (
 );
 
 const MainPage: React.FC = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [offerOpen, setOfferOpen] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const targetDate = new Date('2025-04-30T23:59:59Z');
+  const targetDate = new Date("2025-04-30T23:59:59Z");
   return (
     <>
-      <CssBaseline/>
+      <CssBaseline />
       <SpecialOfferModal
         open={offerOpen}
         onClose={() => setOfferOpen(false)}
@@ -62,7 +64,7 @@ const MainPage: React.FC = () => {
         mainTitle={
           <>
             {t("mainPage.mainTitle1")}
-            <br/>
+            <br />
             {t("mainPage.mainTitle2")}
           </>
         }
@@ -72,14 +74,14 @@ const MainPage: React.FC = () => {
               isMobile={isMobile}
               text={t("mainPage.secondaryTitle1")}
             />
-            <br/>
-            <br/>
+            <br />
+            <br />
             <IconTypography
               isMobile={isMobile}
               text={t("mainPage.secondaryTitle2")}
             />
-            <br/>
-            <br/>
+            <br />
+            <br />
             <IconTypography
               isMobile={isMobile}
               text={t("mainPage.secondaryTitle3")}
@@ -92,16 +94,19 @@ const MainPage: React.FC = () => {
         buttonOnClickPath={"enroll"}
         underButtonText={t("mainPage.underButtonText")}
       />
-      <CambridgeFrame/>
-      <VideoFrame/>
-      <BlogsFrame/>
-      <ReserveNPricingLinkFrame/>
-      <WorldClassFrame/>
-      <AcademicDirectorQuoteFrame/>
-      <CardsFrame/>
-      <PartOfCambridgeFrame/>
-      <TransitioningFrame/>
-      <EnrollFrame/>
+      <CambridgeFrame />
+      <VideoFrame />
+      <BlogsFrame />
+      <ReserveNPricingLinkFrame />
+      <WorldClassFrame />
+      <AcademicDirectorQuoteFrame />
+      <CardsFrame />
+      <PartOfCambridgeFrame />
+      <TransitioningFrame />
+      <CssVarsProvider>
+        <FeedbackCarouselFrame />
+      </CssVarsProvider>
+      <EnrollFrame />
     </>
   );
 };
