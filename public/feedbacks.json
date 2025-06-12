@@ -1,0 +1,52 @@
+[
+  {
+    "rating": 5,
+    "name": "Olga Petrova",
+    "comment": "Мы очень довольны! Дочка с радостью ходит в сад, особенно ей нравятся занятия по английскому и творческие мастерские. Воспитатели внимательные и заботливые."
+  },
+  {
+    "rating": 4.5,
+    "name": "Michael Johnson",
+    "comment": "My son really enjoys his time here. The international environment is a big plus — he's picking up both English and Serbian. Only wish the outdoor area was a bit larger."
+  },
+  {
+    "rating": 3.5,
+    "name": "Nataša Ilić",
+    "comment": "Программа хорошая, но не хватает обратной связи от воспитателей. Хотелось бы больше фотографий и информации о днях ребенка. В остальном — достойно."
+  },
+  {
+    "rating": 5,
+    "name": "Katarina Dimitrijević",
+    "comment": "Fantastično iskustvo! Naša ćerka je postala otvorenija и samostalnija. Posebno cenimo raznolikost kultura i učitelja iz različitih zemalja."
+  },
+  {
+    "rating": 2.5,
+    "name": "Andrey Volkov",
+    "comment": "Ожидали большего за такую стоимость. Да, здание новое и материалы качественные, но подход к детям показался слишком формальным. Индивидуального подхода не хватило."
+  },
+  {
+    "rating": 4,
+    "name": "Sophie Dubois",
+    "comment": "Great school! Very warm and supportive atmosphere. I love how the kids celebrate different cultural holidays. Would be perfect if the meal plan included more vegetarian options."
+  },
+  {
+    "rating": 3,
+    "name": "Jelena Stanković",
+    "comment": "Neutral experience so far. My daughter likes the activities but I feel communication with the administration could be improved. Hoping for more structured feedback."
+  },
+  {
+    "rating": 4.5,
+    "name": "Ali Mahmoud",
+    "comment": "Our twin boys have made friends from all over the world. The teachers are very kind and helpful. The curriculum is balanced between learning and play."
+  },
+  {
+    "rating": 1,
+    "name": "Mira Novak",
+    "comment": "Нас не устроила организация. Ребёнок не адаптировался, и никакой поддержки в этом процессе не было. Нам пришлось перейти в другое учреждение."
+  },
+  {
+    "rating": 5,
+    "name": "Thomas Müller",
+    "comment": "Best decision we made! Our daughter comes home every day excited and full of stories. The bilingual approach and international team are top-notch."
+  }
+]

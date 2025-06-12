@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
+import StarsRating from "./StarsRating";
+
 import {
   Box,
   TextField,
@@ -11,7 +13,6 @@ import {
   useMediaQuery,
   Grid,
 } from "@mui/material";
-import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import theme from "../../elements/Theme";
 import emailjs from "@emailjs/browser";
 import OrangeHighlightButton from "../../elements/OrangeHighlightButton";
@@ -27,14 +28,9 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [formValues, setFormValues] = useState({
-    childName: "",
-    childGender: "",
-    childBirthday: "",
-    parentName: "",
-    phone: "",
+    parentNameFB: "",
     email: "",
     comments: "",
-    educationLevel: "",
   });
   const [captchaValue, setCaptchaValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -147,13 +143,16 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
             },
         }}
       >
+        <Box>
+          <StarsRating />
+        </Box>
         <TextField
           fullWidth
-          name="parentName-fbForm"
+          name="parentNameFB"
           label={t("FeedbackFormFrame.Your full name")}
           variant="outlined"
           required
-          value={formValues.parentName}
+          value={formValues.parentNameFB}
           onChange={handleInputChange}
         />
         <TextField
