@@ -90,7 +90,7 @@ function App() {
               render={renderWithLanguage(EnrollPage, "ru")}
             />
             <Route
-              path="/feedback"
+              path="/ru/feedback"
               render={renderWithLanguage(FeedbackPage, "ru")}
             />
             <Route

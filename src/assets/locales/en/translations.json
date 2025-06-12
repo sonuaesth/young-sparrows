@@ -359,6 +359,24 @@
     "Please complete the captcha": "Please complete the captcha",
     "Thank you for your submission!": "Thank you for your submission!"
   },
+
+  "FeedbackPage": {
+    "mainTitle1": "Want to share",
+    "mainTitle2": "your impressions?",
+    "buttonText": "Go to feedback form"
+  },
+
+  "FeedbackFormFrame": {
+    "title": "Leave your feedback here",
+    "Your full name": "Your full name",
+    "Your phone": "Your phone",
+    "Your email": "Your email",
+    "Special requirements or comments": "Your expirience with Young Sparrows",
+    "SUBMIT": "SUBMIT",
+    "Please complete the captcha": "Please complete the captcha",
+    "Thank you for your submission!": "Thank you for your submission!"
+  },
+
   "SEO": {
     "Primary International School Belgrade | Young Sparrows": "Primary International School Belgrade | Young Sparrows",
     "Primary International School Belgrade Young Sparrows is a world-leading primary school academic program and a multicultural, language-immersive environment with comprehensive curriculum.": "Primary International School Belgrade Young Sparrows is a world-leading primary school academic program and a multicultural, language-immersive environment with comprehensive curriculum.",

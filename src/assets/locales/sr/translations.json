@@ -359,6 +359,24 @@
     "Please complete the captcha": "Molimo popunite captcha",
     "Thank you for your submission!": "Hvala vam na podnesku!"
   },
+
+  "FeedbackPage": {
+    "mainTitle1": "Zahtevate",
+    "mainTitle2": "odgovor",
+    "buttonText": "Idite na obrazac"
+  },
+
+  "FeedbackFormFrame": {
+    "title": "Ostavite poruku",
+    "Your full name": "Vaša puno ime i prezime",
+    "Your phone": "Vaš telefon",
+    "Your email": "Adresa vaše e-pošte",
+    "Special requirements or comments": "Posebni zahtevi ili komentari",
+    "SUBMIT": "PROSLEĐIVANJE",
+    "Please complete the captcha": "Molimo popunite captcha",
+    "Thank you for your submission!": "Hvala vam na podnesku!"
+  },
+
   "SEO": {
     "Primary International School Belgrade | Young Sparrows": "Osnovna međunarodna škola Beograd | Young Sparrows",
     "Primary International School Belgrade Young Sparrows is a world-leading primary school academic program and a multicultural, language-immersive environment with comprehensive curriculum.": "Osnovna međunarodna škola Beograd Young Sparrows je vodeći svetski akademski program za osnovnu školu i multikulturalno, jezičko-imerzivno okruženje sa sveobuhvatnim nastavnim planom i programom.",
