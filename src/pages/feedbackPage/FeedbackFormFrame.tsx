@@ -34,6 +34,7 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
   });
   const [captchaValue, setCaptchaValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [captchaError, setCaptchaError] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -45,22 +46,31 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
   };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!captchaValue) {
-      alert(t("FeedbackFormFrame.Please complete the captcha"));
+
+    const form = event.currentTarget;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
-    } else {
-      emailjs.init("0VR9T4-49oj__IUhF");
-      emailjs
-        .sendForm(
-          "service_z9nsi2d",
-          "template_r62oktm",
-          event.currentTarget,
-          "0VR9T4-49oj__IUhF"
-        )
-        .then(() => {
-          setIsSubmitted(true);
-        });
     }
+
+    if (!captchaValue) {
+      setCaptchaError(true);
+      return;
+    }
+
+    setCaptchaError(false);
+    emailjs.init("0VR9T4-49oj__IUhF");
+    emailjs
+      .sendForm(
+        "service_z9nsi2d",
+        "template_r62oktm",
+        form,
+        "0VR9T4-49oj__IUhF"
+      )
+      .then(() => {
+        setIsSubmitted(true);
+      });
   };
 
   return (
@@ -194,6 +204,19 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
                 ? "ru"
                 : "sr-Latn"
             }
+          />
+          <input
+            name="captcha"
+            value={captchaValue}
+            onChange={() => {}}
+            required
+            style={{
+              position: "absolute",
+              opacity: 0,
+              pointerEvents: "none",
+              height: 0,
+              width: 0,
+            }}
           />
           <br />
           {!isSubmitted ? (

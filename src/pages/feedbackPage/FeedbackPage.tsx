@@ -24,15 +24,7 @@ const Feedback: React.FC = () => {
             {t("FeedbackPage.mainTitle2")}
           </>
         }
-        secondaryTitle={
-          <>
-            {/* Enroll your child before May 2024 and claim a 5%<br/>
-                            early bird discount on yearly tuition. Limited<br/>
-                            spots available. 
-                            Enroll your child now to start their journey<br/>
-                at Young Sparrows!*/}
-          </>
-        }
+        secondaryTitle={<></>}
         backgroundImageUrl={"/enrollPage/hero.webp"}
         altImage="Group of kids in International School Belgrade"
         buttonText={t("NurceryPage.buttonText")}
