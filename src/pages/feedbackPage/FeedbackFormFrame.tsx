@@ -2,17 +2,8 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
 import StarsRating from "./StarsRating";
-
-import {
-  Box,
-  TextField,
-  FormControlLabel,
-  FormControl,
-  FormLabel,
-  Typography,
-  useMediaQuery,
-  Grid,
-} from "@mui/material";
+import Alert from "@mui/material/Alert";
+import { Box, TextField, Typography, useMediaQuery, Grid } from "@mui/material";
 import theme from "../../elements/Theme";
 import emailjs from "@emailjs/browser";
 import OrangeHighlightButton from "../../elements/OrangeHighlightButton";
@@ -193,6 +184,7 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
           }}
         >
           <br />
+
           <ReCAPTCHA
             key={currentLanguage}
             sitekey="6Lenza8pAAAAAPT8mtC5aQgPfXfvGB9lVxAt_0In"
@@ -205,19 +197,12 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
                 : "sr-Latn"
             }
           />
-          <input
-            name="captcha"
-            value={captchaValue}
-            onChange={() => {}}
-            required
-            style={{
-              position: "absolute",
-              opacity: 0,
-              pointerEvents: "none",
-              height: 0,
-              width: 0,
-            }}
-          />
+          {captchaError && (
+            <Alert variant="outlined" severity="error" sx={{ mt: 2 }}>
+              Please complete the captcha
+            </Alert>
+          )}
+
           <br />
           {!isSubmitted ? (
             <OrangeHighlightButton type="submit">

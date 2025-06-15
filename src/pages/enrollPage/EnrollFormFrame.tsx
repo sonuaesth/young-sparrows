@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import Alert from "@mui/material/Alert";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
   Box,
@@ -39,6 +40,7 @@ const EnrollFormFrame: React.FC<EnrollFormFrameProps> = ({ formRef }) => {
     educationLevel: "",
   });
   const [captchaValue, setCaptchaValue] = useState("");
+  const [captchaError, setCaptchaError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,22 +56,31 @@ const EnrollFormFrame: React.FC<EnrollFormFrameProps> = ({ formRef }) => {
   };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!captchaValue) {
-      alert(t("EnrollFormFrame.Please complete the captcha"));
+
+    const form = event.currentTarget;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
-    } else {
-      emailjs.init("0VR9T4-49oj__IUhF");
-      emailjs
-        .sendForm(
-          "service_z9nsi2d",
-          "template_r62oktm",
-          event.currentTarget,
-          "0VR9T4-49oj__IUhF"
-        )
-        .then(() => {
-          setIsSubmitted(true);
-        });
     }
+
+    if (!captchaValue) {
+      setCaptchaError(true);
+      return;
+    }
+
+    setCaptchaError(false);
+    emailjs.init("0VR9T4-49oj__IUhF");
+    emailjs
+      .sendForm(
+        "service_z9nsi2d",
+        "template_r62oktm",
+        event.currentTarget,
+        "0VR9T4-49oj__IUhF"
+      )
+      .then(() => {
+        setIsSubmitted(true);
+      });
   };
 
   const lines = [
@@ -283,6 +294,11 @@ const EnrollFormFrame: React.FC<EnrollFormFrameProps> = ({ formRef }) => {
                 : "sr-Latn"
             }
           />
+          {captchaError && (
+            <Alert variant="outlined" severity="error" sx={{ mt: 2 }}>
+              Please complete the captcha
+            </Alert>
+          )}
           <br />
           {!isSubmitted ? (
             <OrangeHighlightButton type="submit">
