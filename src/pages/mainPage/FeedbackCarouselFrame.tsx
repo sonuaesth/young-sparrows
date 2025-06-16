@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/joy/Box";
-import Typography from "@mui/joy/Typography";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, Typography } from "@mui/material";
 import Card from "@mui/joy/Card";
 import feedbacks from "../../assets/feedback.json";
 import { useTranslation } from "react-i18next";
@@ -10,16 +9,15 @@ import { Fullscreen } from "@mui/icons-material";
 
 const FeedbackCarouselFrame: React.FC = () => {
   const { t, i18n } = useTranslation();
-  let currentLanguage = i18n.language || "en";
 
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box sx={{ px: 2, py: 15 }}>
+    <Box sx={{ px: 2, py: 10 }}>
       <Typography
+        variant={isMobile ? "h2" : "h1"}
         fontFamily="Open Sans Bold"
-        level="h1"
-        sx={{ mb: 2 }}
+        sx={{ mb: "2vh" }}
         textAlign="center"
       >
         {t("FeedbackCarouselFrame.title")}
@@ -27,8 +25,8 @@ const FeedbackCarouselFrame: React.FC = () => {
       <Box
         sx={{
           display: "flex",
-          gap: 1,
-          py: 5,
+          gap: "1vh",
+          py: "5vh",
           overflow: "auto",
           width: "full",
           scrollSnapType: "x mandatory",
@@ -44,27 +42,24 @@ const FeedbackCarouselFrame: React.FC = () => {
             size="lg"
             key={index}
             variant="outlined"
-            sx={{ minWidth: 300, minHeight: 400, alignItems: "start" }}
+            sx={{
+              minWidth: isMobile ? "50vh" : "40vh",
+              minHeight: isMobile ? "30vh" : "40vh",
+              alignItems: "start",
+            }}
           >
             <Box
               sx={{
                 whiteSpace: "normal",
                 mx: 1,
-                maxWidth: 200,
+                maxWidth: isMobile ? "40vh" : "30vh",
               }}
             >
-              <Typography
-                fontSize={"xl3"}
-                fontWeight={"bold"}
-                level="body-xs"
-                sx={{ mt: 0.5 }}
-              >
+              <Typography variant="h3" fontWeight={"bold"}>
                 Rating: {item.rating} ⭐
               </Typography>
-              <Typography fontSize={"xl"} level="title-md">
-                {item.name}
-              </Typography>
-              <Typography fontSize={"md"} fontStyle={"italic"} level="body-sm">
+              <Typography variant="h4">{item.name}</Typography>
+              <Typography variant="body1" fontStyle={"italic"}>
                 {item.comment}
               </Typography>
             </Box>

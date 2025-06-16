@@ -17,6 +17,7 @@ import BlogsFrame from "./BlogsFrame";
 import SpecialOfferModal from "../../elements/SpecialOfferModal";
 import FeedbackCarouselFrame from "./FeedbackCarouselFrame";
 import { CssVarsProvider } from "@mui/joy";
+import StructuredData from "./StructuredReviews";
 
 export interface IconTypographyI {
   isMobile: boolean;
@@ -103,6 +104,7 @@ const MainPage: React.FC = () => {
       <CardsFrame />
       <PartOfCambridgeFrame />
       <TransitioningFrame />
+      <StructuredData />
       <CssVarsProvider>
         <FeedbackCarouselFrame />
       </CssVarsProvider>
