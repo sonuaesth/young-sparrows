@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/young-sparrows/static/css/main.7687b6ea.css",
-    "main.js": "/young-sparrows/static/js/main.17ec07be.js",
+    "main.js": "/young-sparrows/static/js/main.e44e8c71.js",
     "static/media/OpenSans-Bold.ttf": "/young-sparrows/static/media/OpenSans-Bold.043771c999cd4d47d9f3.ttf",
     "static/media/OpenSans-Extrabold.ttf": "/young-sparrows/static/media/OpenSans-Extrabold.8dafb2ac05778278072a.ttf",
     "static/media/OpenSans-Light-Italic.ttf": "/young-sparrows/static/media/OpenSans-Light-Italic.4f712f17699ad7802828.ttf",
     "static/media/OpenSans-Regular.ttf": "/young-sparrows/static/media/OpenSans-Regular.9a6cfa5890d7f3eef585.ttf",
     "index.html": "/young-sparrows/index.html",
     "main.7687b6ea.css.map": "/young-sparrows/static/css/main.7687b6ea.css.map",
-    "main.17ec07be.js.map": "/young-sparrows/static/js/main.17ec07be.js.map"
+    "main.e44e8c71.js.map": "/young-sparrows/static/js/main.e44e8c71.js.map"
   },
   "entrypoints": [
     "static/css/main.7687b6ea.css",
-    "static/js/main.17ec07be.js"
+    "static/js/main.e44e8c71.js"
   ]
 }
