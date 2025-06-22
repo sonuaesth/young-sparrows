@@ -2,17 +2,8 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
 import StarsRating from "./StarsRating";
-
-import {
-  Box,
-  TextField,
-  FormControlLabel,
-  FormControl,
-  FormLabel,
-  Typography,
-  useMediaQuery,
-  Grid,
-} from "@mui/material";
+import Alert from "@mui/material/Alert";
+import { Box, TextField, Typography, useMediaQuery, Grid } from "@mui/material";
 import theme from "../../elements/Theme";
 import emailjs from "@emailjs/browser";
 import OrangeHighlightButton from "../../elements/OrangeHighlightButton";
@@ -34,6 +25,7 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
   });
   const [captchaValue, setCaptchaValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [captchaError, setCaptchaError] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -45,22 +37,31 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
   };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!captchaValue) {
-      alert(t("FeedbackFormFrame.Please complete the captcha"));
+
+    const form = event.currentTarget;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
-    } else {
-      emailjs.init("0VR9T4-49oj__IUhF");
-      emailjs
-        .sendForm(
-          "service_z9nsi2d",
-          "template_r62oktm",
-          event.currentTarget,
-          "0VR9T4-49oj__IUhF"
-        )
-        .then(() => {
-          setIsSubmitted(true);
-        });
     }
+
+    if (!captchaValue) {
+      setCaptchaError(true);
+      return;
+    }
+
+    setCaptchaError(false);
+    emailjs.init("0VR9T4-49oj__IUhF");
+    emailjs
+      .sendForm(
+        "service_z9nsi2d",
+        "template_l1gjrmc",
+        form,
+        "0VR9T4-49oj__IUhF"
+      )
+      .then(() => {
+        setIsSubmitted(true);
+      });
   };
 
   return (
@@ -183,9 +184,10 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
           }}
         >
           <br />
+
           <ReCAPTCHA
             key={currentLanguage}
-            sitekey="6Lenza8pAAAAAPT8mtC5aQgPfXfvGB9lVxAt_0In"
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY!}
             onChange={handleCaptchaChange}
             hl={
               currentLanguage === "en"
@@ -195,6 +197,12 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
                 : "sr-Latn"
             }
           />
+          {captchaError && (
+            <Alert variant="outlined" severity="error" sx={{ mt: 2 }}>
+              Please complete the captcha
+            </Alert>
+          )}
+
           <br />
           {!isSubmitted ? (
             <OrangeHighlightButton type="submit">

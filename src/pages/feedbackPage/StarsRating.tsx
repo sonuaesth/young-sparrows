@@ -1,9 +1,7 @@
-import { useState } from "react";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import { useTranslation } from "react-i18next";
 
 export default function BasicRating() {
   const [value, setValue] = React.useState<number | null>(0);

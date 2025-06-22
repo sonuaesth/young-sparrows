@@ -18,7 +18,7 @@ const TransitioningFrame: React.FC = () => {
         paddingLeft: isMobile ? "20px" : "73px",
         paddingRight: isMobile ? "20px" : "73px",
         flexDirection: "column",
-        mb: isMobile ? "6vh" : "20vh",
+        mb: isMobile ? "6vh" : "10vh",
       }}
     >
       <Typography variant={"h2"} mx="auto" textAlign="center">
