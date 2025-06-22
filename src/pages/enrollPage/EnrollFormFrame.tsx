@@ -284,7 +284,7 @@ const EnrollFormFrame: React.FC<EnrollFormFrameProps> = ({ formRef }) => {
           <br />
           <ReCAPTCHA
             key={currentLanguage}
-            sitekey="6Lenza8pAAAAAPT8mtC5aQgPfXfvGB9lVxAt_0In"
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY!}
             onChange={handleCaptchaChange}
             hl={
               currentLanguage === "en"

@@ -2,7 +2,6 @@
   "name": "little-sparrows",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sonuaesth.github.io/young-sparrows",
   "dependencies": {
     "@appigram/react-yandex-metrika": "^2.8.6",
     "@emailjs/browser": "^3.11.0",

@@ -2,6 +2,9 @@ import React from "react";
 import feedbacks from "../../assets/feedback.json";
 
 const StructuredData: React.FC = () => {
+  const totalReviews = feedbacks.length;
+  const sumRatings = feedbacks.reduce((sum, item) => sum + (item.rating || 0), 0);
+  const avgRating = totalReviews > 0 ? parseFloat((sumRatings / totalReviews).toFixed(1)) : 0;
   const reviews = feedbacks.map((item) => ({
     "@type": "Review",
     author: {
@@ -9,11 +12,12 @@ const StructuredData: React.FC = () => {
       name: item.name,
     },
     reviewBody: item.comment,
-    datePublished: "2025-06-15",
+    datePublished: new Date().toISOString().split("T")[0],
     reviewRating: {
       "@type": "Rating",
       ratingValue: item.rating,
       bestRating: 5,
+      worstRating: 1,
     },
   }));
   const jsonLd = {
@@ -23,8 +27,10 @@ const StructuredData: React.FC = () => {
     url: "https://youngsparrows.com",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "10",
+      ratingValue: avgRating,
+      ratingCount: totalReviews,
+      bestRating: 5,
+      worstRating: 1,
     },
     review: reviews,
   };

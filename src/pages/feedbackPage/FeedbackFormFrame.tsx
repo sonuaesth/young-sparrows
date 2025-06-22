@@ -55,7 +55,7 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
     emailjs
       .sendForm(
         "service_z9nsi2d",
-        "template_r62oktm",
+        "template_l1gjrmc",
         form,
         "0VR9T4-49oj__IUhF"
       )
@@ -187,7 +187,7 @@ const FeedbackFormFrame: React.FC<FeedbackFormFrameProps> = ({ formRef }) => {
 
           <ReCAPTCHA
             key={currentLanguage}
-            sitekey="6Lenza8pAAAAAPT8mtC5aQgPfXfvGB9lVxAt_0In"
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY!}
             onChange={handleCaptchaChange}
             hl={
               currentLanguage === "en"
